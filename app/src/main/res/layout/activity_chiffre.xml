@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chiffre">
+
+    <ImageView
+        android:id="@+id/i1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="54dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i4"
+        app:layout_constraintEnd_toStartOf="@+id/i2"
+        app:layout_constraintStart_toEndOf="@+id/i0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/i1" />
+
+    <ImageView
+        android:id="@+id/i2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="47dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/i1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/i2" />
+
+    <ImageView
+        android:id="@+id/i3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="57dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i6"
+        app:layout_constraintEnd_toStartOf="@+id/i4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i0"
+        app:srcCompat="@drawable/i3" />
+
+    <ImageView
+        android:id="@+id/i4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="59dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i7"
+        app:layout_constraintEnd_toStartOf="@+id/i5"
+        app:layout_constraintStart_toEndOf="@+id/i3"
+        app:layout_constraintTop_toBottomOf="@+id/i1"
+        app:srcCompat="@drawable/i4" />
+
+    <ImageView
+        android:id="@+id/i5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="58dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/i4"
+        app:layout_constraintTop_toBottomOf="@+id/i2"
+        app:srcCompat="@drawable/i5" />
+
+    <ImageView
+        android:id="@+id/i6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="284dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/i7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i3"
+        app:srcCompat="@drawable/i6" />
+
+    <ImageView
+        android:id="@+id/i7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="47dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toTopOf="@+id/i9"
+        app:layout_constraintEnd_toStartOf="@+id/i8"
+        app:layout_constraintStart_toEndOf="@+id/i6"
+        app:layout_constraintTop_toBottomOf="@+id/i4"
+        app:srcCompat="@drawable/i7" />
+
+    <ImageView
+        android:id="@+id/i8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="282dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/i7"
+        app:layout_constraintTop_toBottomOf="@+id/i5"
+        app:srcCompat="@drawable/i8" />
+
+    <ImageView
+        android:id="@+id/i9"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="124dp"
+        android:onClick="jouerSon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/i7"
+        app:srcCompat="@drawable/i9" />
+
+    <ImageView
+        android:id="@+id/i0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/i3"
+        app:layout_constraintEnd_toStartOf="@+id/i1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/i0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
