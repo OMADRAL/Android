@@ -1,5 +1,4 @@
 package com.example.appiagi2_26;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,13 +14,19 @@ import androidx.core.view.WindowInsetsCompat;
 public class Activite5 extends AppCompatActivity {
     EditText e1, e2;
     TextView t4;
-    Button btnPlus, btnMoins, btnFois, btnDivise, btnEffacer,btnResult;
+    Button btnPlus, btnMoins, btnFois, btnDivise, btnEffacer, btnResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_activite5);
 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         e1 = findViewById(R.id.e1);
         e2 = findViewById(R.id.e2);
@@ -33,77 +38,34 @@ public class Activite5 extends AppCompatActivity {
         btnDivise = findViewById(R.id.btnDivise);
         btnEffacer = findViewById(R.id.btnEffacer);
         btnResult = findViewById(R.id.btnResult);
-
-        // BOUTON ADDITION
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String v1 = e1.getText().toString();
-                String v2 = e2.getText().toString();
-
-                if (!v1.isEmpty() && !v2.isEmpty()) {
-                    int n1 = Integer.parseInt(v1);
-                    int n2 = Integer.parseInt(v2);
-                    int resultat = n1 + n2;
-                    t4.setText(n1 + " + " + n2 + " = " + resultat);
-                }
+                calculerOperation("+");
             }
         });
 
-        // BOUTON SOUSTRACTION
         btnMoins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String v1 = e1.getText().toString();
-                String v2 = e2.getText().toString();
-
-                if (!v1.isEmpty() && !v2.isEmpty()) {
-                    int n1 = Integer.parseInt(v1);
-                    int n2 = Integer.parseInt(v2);
-                    int resultat = n1 - n2;
-                    t4.setText(n1 + " - " + n2 + " = " + resultat);
-                }
+                calculerOperation("-");
             }
         });
 
-        // BOUTON MULTIPLICATION
         btnFois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String v1 = e1.getText().toString();
-                String v2 = e2.getText().toString();
-
-                if (!v1.isEmpty() && !v2.isEmpty()) {
-                    int n1 = Integer.parseInt(v1);
-                    int n2 = Integer.parseInt(v2);
-                    int resultat = n1 * n2;
-                    t4.setText(n1 + " *" + n2 + " = " + resultat);
-                }
+                calculerOperation("*");
             }
         });
 
-        // BOUTON DIVISION
         btnDivise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String v1 = e1.getText().toString();
-                String v2 = e2.getText().toString();
-
-                if (!v1.isEmpty() && !v2.isEmpty()) {
-                    int n1 = Integer.parseInt(v1);
-                    int n2 = Integer.parseInt(v2);
-
-                    if (n2 != 0) {
-                        int resultat = n1 / n2;
-                        t4.setText(n1 + " / " + n2 + " = " + resultat);
-                    } else {
-                        t4.setText("Erreur: division par zéro");
-                    }
-                }
+                calculerOperation("/");
             }
         });
 
-        // BOUTON EFFACER
         btnEffacer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,21 +78,63 @@ public class Activite5 extends AppCompatActivity {
         btnResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String v1 = e1.getText().toString();
-                String v2 = e2.getText().toString();
-                if (!v1.isEmpty() && !v2.isEmpty()) {
-                    int n1 = Integer.parseInt(v1);
-                    int n2 = Integer.parseInt(v2);
-                    int resultat = n1 + n2;
-                    t4.setText("Résultat: " + resultat);
-                }
+
+                t4.setText("Veuillez choisir une opération (+, -, *, /)");
             }
         });
+    }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+    private void calculerOperation(String operation) {
+        String v1 = e1.getText().toString();
+        String v2 = e2.getText().toString();
+
+        if (!v1.isEmpty() && !v2.isEmpty()) {
+            try {
+                int n1 = Integer.parseInt(v1);
+                int n2 = Integer.parseInt(v2);
+                int resultat = 0;
+                String symbole = "";
+                String messageErreur = null;
+
+                switch (operation) {
+                    case "+":
+                        resultat = n1 + n2;
+                        symbole = "+";
+                        break;
+                    case "-":
+                        resultat = n1 - n2;
+                        symbole = "-";
+                        break;
+                    case "*":
+                        resultat = n1 * n2;
+                        symbole = "*";
+                        break;
+                    case "/":
+                        if (n2 != 0) {
+                            resultat = n1 / n2;
+                            symbole = "/";
+                        } else {
+                            messageErreur = "Erreur: division par zéro";
+                        }
+                        break;
+                    default:
+                        messageErreur = "Opération inconnue";
+                        break;
+                }
+
+                if (messageErreur != null) {
+                    t4.setText(messageErreur);
+                } else {
+                    t4.setText(n1 + " " + symbole + " " + n2 + " = " + resultat);
+                }
+
+            } catch (NumberFormatException e) {
+                t4.setText("Erreur: nombres invalides");
+            } catch (Exception e) {
+                t4.setText("Erreur inattendue");
+            }
+        } else {
+            t4.setText("Veuillez saisir deux nombres");
+        }
     }
 }
